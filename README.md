@@ -48,21 +48,36 @@
    ```
 
 4. Start MariaDB ( An open-source fork of MySQL )
-
-
-
    ```
    sudo service mysql start
    ``` 
-`Stop MariaDB `
-``` ssh 
-sudo service mysql stop
-``` 
-`Check status of MariaDB`
-```ssh
-sudo systemctl status mysql
-```
+   
+5. Stop MariaDB 
+   ``` ssh 
+   sudo service mysql stop
+   ``` 
+   
+6. Check status of MariaDB
+   ```ssh
+   sudo systemctl status mysql
+   ```
+    
+   
+ 7. Check PHP module in Apache
+
+
+* If module is added, php information page will open in localhost. 
+
+
+    ```ssh
+    echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/index.html
+      
+    sudo mv /var/www/html/index.html /var/www/html/index.php
+      
+    xdg-open http://localhost
+    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
