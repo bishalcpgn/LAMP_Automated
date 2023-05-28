@@ -5,12 +5,6 @@
 * A script that can save time by automating manual installation of LAMP in debian.
 
 * It automates mysql_secure_installation too. :smile:
-
-* <a href="https://github.com" target="_blank">Click here</a> to test credentials.
-
-          Username : root
-          Password : root
-          
  
           
 ### Installation
@@ -29,7 +23,24 @@
    ```
    ./LAMP.sh
    ```
+   
+4. <a href="https://localhost/phpmyadmin" target="_blank">Click here</a> to test credentials.
 
+          Username : root
+          Password : root
+          
+5. Check PHP module in Apache
+
+
+* If module is added, php information page will open in localhost. 
+
+    ```ssh
+    echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/index.html
+      
+    sudo mv /var/www/html/index.html /var/www/html/index.php
+      
+    xdg-open http://localhost
+    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### More Tips 
@@ -63,24 +74,6 @@
    ```ssh
    sudo systemctl status mysql
    ```
-    
-   
- 7. Check PHP module in Apache
-
-
-* If module is added, php information page will open in localhost. 
-
-
-    ```ssh
-    echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/index.html
-      
-    sudo mv /var/www/html/index.html /var/www/html/index.php
-      
-    xdg-open http://localhost
-    ```
-    
-  8. Check PHP module in Apache  
-    
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
