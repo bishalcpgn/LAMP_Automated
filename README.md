@@ -6,6 +6,8 @@
 
 * It automates mysql_secure_installation too. :smile:
 
+* Click here to test credentials.
+
           Username : root
           Password : root
           
@@ -76,6 +78,9 @@
       
     xdg-open http://localhost
     ```
+    
+  8. Check PHP module in Apache  
+    
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
