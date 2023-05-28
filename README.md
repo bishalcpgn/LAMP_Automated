@@ -6,7 +6,7 @@
 
 * It automates mysql_secure_installation too. :smile:
 
-* Click here to test credentials.
+* <a href="https://github.com" target="_blank">Click here</a> to test credentials.
 
           Username : root
           Password : root
