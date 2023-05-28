@@ -6,4 +6,7 @@
 
 * It automates mysql_secure_installation too. :smile:
 
+          Username : root
+          Password : root
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
