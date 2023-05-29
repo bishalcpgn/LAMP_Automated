@@ -24,7 +24,7 @@
    ./LAMP.sh
    ```
    
-4. <a href="https://localhost/phpmyadmin" target="_blank">Click here</a> to test credentials.
+4. <a href="https://localhost/phpmyadmin" target="_blank">Click here</a> to test credentials. ( Works only after starting Apache and     MariaDB) <p align="right">(<a href="#how-to-start">How to start</a>)</p>
 
           Username : root
           Password : root
@@ -43,7 +43,7 @@
     ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### More Tips 
+### More Tips  <a name="how-to-start"></a>
 
 1. Start apache server 
    ```
