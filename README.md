@@ -11,7 +11,7 @@
 
 1. Clone the repo
    ```
-   git clone https://github.com/bishalcpgn/LAMP_Automated.git
+   git clone https://github.com/bishalcpgn/LAMP_Automated.git 
    ```
    
 2. Make it executable
