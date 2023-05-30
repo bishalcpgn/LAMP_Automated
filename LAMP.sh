@@ -28,6 +28,9 @@ else
 
     # systemctl status mariadb
 
+    #mysql started for mysql_secure_installation
+    systemctl start mysql
+
     sudo mysql_secure_installation << input
 
         y
@@ -40,6 +43,7 @@ else
 input
     check_status $? "MYSQL_Secure_Installation"
 
+    systemctl stop mysql #mysql stopped
 
     apt install php -y
     check_status $? "PHP"
