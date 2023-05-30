@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Function to check installation status
-
 check_status() {
     if [ $1 -eq 0 ]; then
         echo -e "\n$2 installed successfully.\n"
@@ -11,9 +10,7 @@ check_status() {
     fi
 }
 
-
 # To check root permissions
-
 if [ "$EUID" -ne 0 ]; then
     echo -e "\nThis script must be run as root.\n" 
     exit 1   
@@ -31,11 +28,10 @@ else
 
     # systemctl status mariadb
 
-    #MariaDB started for mysql_secure_installation
-
+    #mysql started for mysql_secure_installation
     systemctl start mysql
 
-    sudo mysql_secure_installation << EOF
+    sudo mysql_secure_installation << input
 
         y
         root
@@ -44,23 +40,17 @@ else
         y
         y
         y
-EOF
+input
     check_status $? "MYSQL_Secure_Installation"
 
-   #Stopping MariaDB
+    systemctl stop mysql #mysql stopped
 
-    systemctl stop mysql 
-    
     apt install php -y
     check_status $? "PHP"
 
- # Install phpMyAdmin with default web server selection
-   export DEBIAN_FRONTEND=noninteractive
-   apt install phpmyadmin -y 
-# Reset the DEBIAN_FRONTEND variable
-   unset DEBIAN_FRONTEND
-
-   check_status $? "phpMyAdmin"
+    
+    apt install phpmyadmin -y
+    check_status $? "phpMyAdmin"
 
     echo -e "\nTask Completed Successfully.\n"
 fi
