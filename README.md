@@ -63,7 +63,7 @@
 4. Start MariaDB ( An open-source fork of MySQL )
    ```
    sudo service mysql start
-   ``` 
+   ```  
    
 5. Stop MariaDB 
    ``` ssh 
