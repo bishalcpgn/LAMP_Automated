@@ -4,7 +4,7 @@
 
 * A script that can save time by automating manual installation of LAMP in debian.
 
-* It automates mysql_secure_installation too. :smile: 
+* It automates mysql_secure_installation and phpMyAdmin installation too. :smile: 
  
           
 ### Installation
