@@ -15,7 +15,7 @@ if [ "$EUID" -ne 0 ]; then
     echo -e "\nThis script must be run as root.\n" 
     exit 1   
 else 
-    apt update && apt upgrade -y
+    apt update && apt upgrade -y  
     check_status $? "Package updates"
 
     apt install apache2 -y
@@ -30,9 +30,8 @@ else
 
     #mysql started for mysql_secure_installation
     systemctl start mysql
-
-    sudo mysql_secure_installation << input
-
+    mysql_secure_installation << input
+         
         y
         root
         root
@@ -43,14 +42,39 @@ else
 input
     check_status $? "MYSQL_Secure_Installation"
 
-    systemctl stop mysql #mysql stopped
+    #Enabling login with root
+    mysql -u root -proot -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';"
 
+#Using heredoc
+#sudo mysql -u root -proot <<EOF
+#     ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';    
+# EOF
+    
+    systemctl stop mysql #mysql stopped
+    systemctl reload mysql
     apt install php -y
     check_status $? "PHP"
 
     
-    apt install phpmyadmin -y
+    apt install phpmyadmin 
     check_status $? "phpMyAdmin"
+
+    export DEBIAN_FRONTEND=noninteractive
+
+# Pre-seed Debconf values for phpMyAdmin installation
+echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | sudo debconf-set-selections
+echo 'phpmyadmin phpmyadmin/app-password-confirm password root' | sudo debconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/admin-pass password root' | sudo debconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/app-pass password root' | sudo debconf-set-selections
+
+apt install phpmyadmin -y 
+
+# Enable phpMyAdmin site in Apache
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/sites-available/phpmyadmin.conf
+# Enable phpMyAdmin site in Apache
+a2ensite phpmyadmin
+systemctl reload apache2
+unset DEBIAN_FRONTEND
 
     echo -e "\nTask Completed Successfully.\n"
 fi
