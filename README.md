@@ -10,17 +10,17 @@
 ### Installation
 
 1. Clone the repo
-   ```
+   ```console
    git clone https://github.com/bishalcpgn/LAMP_Automated.git 
    ```
    
 2. Make it executable
-   ```
+   ```console
    chmod +x LAMP.sh
    ```
    
 3. Execute it 
-   ```
+   ```console
    ./LAMP.sh
    ```
    
@@ -34,7 +34,7 @@
 
 * If module is added, php information page will open in localhost. 
 
-    ```ssh
+    ```console
     echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/index.html
       
     sudo mv /var/www/html/index.html /var/www/html/index.php
@@ -46,32 +46,32 @@
 ### More Tips  <a name="how-to-start"></a>
 
 1. Start apache server 
-   ```
+   ```console
    sudo service apache2 start
    ```
    
 2. Stop apache server 
-   ```
+   ```console
    sudo service apache2 stop
    ```
    
 3. Check status of Apache 
-   ```
+   ```console
    sudo systemctl status apache2
    ```
 
 4. Start MariaDB ( An open-source fork of MySQL )
-   ```
+   ```console
    sudo service mysql start
    ```  
    
 5. Stop MariaDB 
-   ``` ssh 
+   ```console
    sudo service mysql stop
    ``` 
    
 6. Check status of MariaDB
-   ```ssh
+   ```console
    sudo systemctl status mysql
    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
